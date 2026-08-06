@@ -5,6 +5,7 @@ import { siteConfig } from '../data/site';
 
 const tabItems = [
     { id: 'experience', label: biographyData.profile.tabs.experience },
+    { id: 'ventures', label: biographyData.profile.tabs.ventures },
     { id: 'education', label: biographyData.profile.tabs.education },
     { id: 'expertise', label: biographyData.profile.tabs.expertise },
     { id: 'others', label: biographyData.profile.tabs.others },
@@ -49,16 +50,36 @@ const tabItems = [
                                 </div>
                             </div>
                             <div class="card-body">
-                                <ul>
-                                    {exp.tasks.map((task) => (
-                                        <li>{task}</li>
-                                    ))}
-                                </ul>
-                                <div class="keywords">
-                                    {exp.keyWords.map((keyword) => (
-                                        <span class="keyword">{keyword}</span>
-                                    ))}
-                                </div>
+                                {exp.tasks.length > 0 && (
+                                    <ul>
+                                        {exp.tasks.map((task) => (
+                                            <li>{task}</li>
+                                        ))}
+                                    </ul>
+                                )}
+                                {exp.subProjects && exp.subProjects.map((sub) => (
+                                    <div class="sub-project">
+                                        <h4 class="sub-project-title">{sub.title}</h4>
+                                        <span class="sub-project-period">{sub.period}</span>
+                                        <ul>
+                                            {sub.tasks.map((task) => (
+                                                <li>{task}</li>
+                                            ))}
+                                        </ul>
+                                        <div class="keywords">
+                                            {sub.keyWords.map((keyword) => (
+                                                <span class="keyword">{keyword}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                                {exp.keyWords.length > 0 && (
+                                    <div class="keywords">
+                                        {exp.keyWords.map((keyword) => (
+                                            <span class="keyword">{keyword}</span>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         </div>
                     ))
@@ -132,6 +153,40 @@ const tabItems = [
                 }
             </section>
 
+            <section class="tab-panel" id="ventures">
+                {
+                    biographyData.venturesList.map((venture) => (
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="header-top">
+                                    <div class="header-info">
+                                        <span class="period">
+                                            {venture.fromYear} - {venture.toYear}
+                                        </span>
+                                        <h3>{venture.title}</h3>
+                                        <p class="company">
+                                            {venture.enterprise} — {venture.team}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    {venture.tasks.map((task) => (
+                                        <li>{task}</li>
+                                    ))}
+                                </ul>
+                                <div class="keywords">
+                                    {venture.keyWords.map((keyword) => (
+                                        <span class="keyword">{keyword}</span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </section>
+
             <section class="tab-panel" id="others">
                 <div class="card">
                     <div class="card-header">
@@ -143,6 +198,23 @@ const tabItems = [
                                 biographyData.extras.languages.map((lang) => (
                                     <li>
                                         {lang.type} - <span class="level">{lang.level}</span>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>{biographyData.profile.awardsHeading}</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            {
+                                biographyData.extras.awards.map((award) => (
+                                    <li>
+                                        <strong>{award.title}</strong> — {award.description}
                                     </li>
                                 ))
                             }
@@ -360,6 +432,26 @@ const tabItems = [
         object-fit: cover;
         flex-shrink: 0;
         padding: var(--spacing-sm);
+    }
+
+    .sub-project {
+        margin-top: var(--spacing-lg);
+        padding-top: var(--spacing-lg);
+        border-top: 1px dashed var(--color-border);
+    }
+
+    .sub-project-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-secondary);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .sub-project-period {
+        display: inline-block;
+        font-size: 0.85rem;
+        color: var(--color-text-lighter);
+        margin-bottom: var(--spacing-sm);
     }
 
     .period {

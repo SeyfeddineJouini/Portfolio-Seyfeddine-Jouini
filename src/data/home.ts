@@ -4,7 +4,7 @@ import { experienceList } from './biography/experience';
 export interface CareerHighlight {
     category: string;
     icon: string;
-    values: { title: string; subtitle: string; fromDate: string; toDate: string }[];
+    values: { title: string; subtitle: string; fromDate: string; toDate: string; enterprise?: string; logo?: string }[];
 }
 
 const educationHighlights = educationList.map((education) => ({
@@ -19,22 +19,24 @@ const experienceHighlights = experienceList.map((experience) => ({
     subtitle: experience.team,
     fromDate: experience.fromYear,
     toDate: experience.toYear,
+    enterprise: experience.enterprise,
+    logo: experience.icon,
 }));
 
 export const homeData = {
     hero: {
         heading: 'Welcome to My Portfolio',
         tagline:
-            'I design and build reliable web platforms, developer tools, and product experiences.',
+            'Full-Stack Developer based in Paris, building impactful web and mobile applications.',
     },
     biographyPreview: {
         heading: 'About Me',
         ctaLabel: 'Read Full Biography',
         resume: `
-    Product-minded software engineer with experience building reliable web applications,
-    improving delivery workflows, and designing maintainable systems.
-    I enjoy turning complex requirements into simple interfaces and sharing practical
-    engineering lessons through writing.
+    Full-Stack Developer with hands-on experience across the entire stack — from backend services
+    in Python, Node.js and Spring Boot, to frontend applications with React and Flutter.
+    I have worked in research labs, healthcare tech, and startups, and I enjoy building
+    products that reach real users.
 `,
     },
     careerHighlights: [

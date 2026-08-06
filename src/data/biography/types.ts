@@ -1,3 +1,10 @@
+export interface SubProject {
+    title: string;
+    period: string;
+    tasks: string[];
+    keyWords: string[];
+}
+
 export interface ProfessionalExperience {
     fromYear: string;
     toYear: string;
@@ -7,6 +14,7 @@ export interface ProfessionalExperience {
     icon: string;
     tasks: string[];
     keyWords: string[];
+    subProjects?: SubProject[];
 }
 
 export interface Education {
@@ -26,6 +34,11 @@ export interface AreaOfExpertise {
 export interface Language {
     type: string;
     level: 'Native' | 'Bilingual' | 'Fluent' | 'Professional';
+}
+
+export interface Award {
+    title: string;
+    description: string;
 }
 
 export interface Interest {

@@ -10,6 +10,8 @@ const allCards = homeData.careerHighlights
             subtitle: value.subtitle,
             fromDate: value.fromDate,
             toDate: value.toDate,
+            enterprise: value.enterprise,
+            logo: value.logo,
         }))
     )
     .sort((a, b) => {
@@ -26,7 +28,16 @@ const allCards = homeData.careerHighlights
                     <div class={`highlight-item ${index === 0 ? 'active' : ''}`}>
                         <div class="highlight-header">
                             <span class="highlight-icon">{card.icon}</span>
-                            <span class="highlight-category">{card.category}</span>
+                            <span class="highlight-category">
+                                {card.enterprise ?? card.category}
+                            </span>
+                            {card.logo && (
+                                <img
+                                    src={`/${card.logo}`}
+                                    alt={card.enterprise ?? ''}
+                                    class="highlight-logo"
+                                />
+                            )}
                         </div>
                         <div class="highlight-content">
                             <span class="highlight-title">{card.title}</span>
@@ -131,14 +142,17 @@ const allCards = homeData.careerHighlights
         position: absolute;
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-md);
-        padding: var(--spacing-lg);
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md);
         background: var(--card-bg);
         border-radius: var(--border-radius-lg);
         box-shadow: 0 4px 12px var(--card-shadow);
         border: 1px solid var(--card-border);
         width: 100%;
         max-width: 600px;
+        min-height: 180px;
+        height: 200px;
+        overflow: hidden;
         opacity: 0;
         transform: translateX(100px);
         transition: all 0.6s ease;
@@ -152,6 +166,7 @@ const allCards = homeData.careerHighlights
     }
 
     .highlight-header {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -167,7 +182,7 @@ const allCards = homeData.careerHighlights
     }
 
     .highlight-category {
-        font-size: 0.85rem;
+        font-size: 1rem;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -180,17 +195,42 @@ const allCards = homeData.careerHighlights
         gap: 0.25rem;
     }
 
+    .highlight-enterprise {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--color-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .highlight-logo {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
     .highlight-title {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-weight: 700;
         color: var(--color-secondary);
-        line-height: 1.3;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .highlight-subtitle {
         font-size: 1rem;
         color: var(--color-text-light);
         font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .highlight-dates {

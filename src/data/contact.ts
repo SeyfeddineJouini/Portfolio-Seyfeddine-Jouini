@@ -13,33 +13,27 @@ export const contactData = {
     links: [
         {
             label: 'Email',
-            uri: 'mailto:first.last@example.com',
+            uri: 'mailto:jouini.seyf.js@gmail.com',
             icon: '✉',
-            value: 'first.last@example.com',
+            value: 'jouini.seyf.js@gmail.com',
         },
         {
             label: 'Phone',
-            uri: 'tel:+15550101010',
+            uri: 'tel:+33698631468',
             icon: '☎',
-            value: '+1 555 010 1010',
+            value: '+33 6 98 63 14 68',
         },
         {
             label: 'LinkedIn',
-            uri: 'https://www.linkedin.com/in/example-engineer/',
+            uri: 'https://www.linkedin.com/in/seyfeddine-jouini-6191b6197/',
             icon: 'in',
             value: siteConfig.fullName,
         },
         {
             label: 'GitHub',
-            uri: 'https://github.com/example-engineer',
+            uri: 'https://github.com/SeyfeddineJouini',
             icon: '{}',
-            value: 'example-engineer',
-        },
-        {
-            label: 'Calendly',
-            uri: 'https://calendly.com/example-engineer/30min',
-            icon: '📅',
-            value: 'Schedule a Meeting',
+            value: 'seyfeddine-jouini',
         },
     ] satisfies ContactLink[],
 };
