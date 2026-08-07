@@ -1,8 +1,10 @@
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 
+// https://astro.build/config
 export default defineConfig({
-  site: 'https://seyfeddinejouini.github.io',
-  base: '/Portfolio-Seyfeddine-Jouini/',
-  integrations: [icon()],
+    site: 'https://example.com',
+    integrations: [icon()],
+    // Enable server-side rendering if needed
+    // output: 'server',
 });
