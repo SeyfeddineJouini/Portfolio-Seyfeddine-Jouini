@@ -11,6 +11,7 @@ export const experienceList: ProfessionalExperience[] = [
         tasks: [
             'Designed and developed end-to-end a patented automatic label placement algorithm for MRI viewers',
             'Led the implementation from algorithmic design to functional validation',
+            'Implemented real-time collision detection and dynamic label repositioning during zoom, pan, rotation, and image navigation.'
         ],
         keyWords: [
             'Python',
@@ -54,7 +55,7 @@ export const experienceList: ProfessionalExperience[] = [
         fromYear: '2025',
         toYear: '2025',
         title: 'Software Engineering Intern',
-        enterprise: 'Paris North Computer Science Laboratory (LIPN)',
+        enterprise: 'Paris North Computer Science Laboratory',
         icon: 'LIPN.png',
         team: 'Paris, France — May 2025 – Jul. 2025',
         tasks: [

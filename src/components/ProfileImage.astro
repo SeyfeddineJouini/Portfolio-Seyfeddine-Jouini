@@ -10,7 +10,7 @@ const { size = 'medium' } = Astro.props;
 
 <div class={`profile-image-wrapper ${size}`}>
     <div class="open-to-work-frame">
-        <img src={siteConfig.profileImage} alt={siteConfig.profileImageAlt} class="profile-image" />
+        <img src={`${import.meta.env.BASE_URL}${siteConfig.profileImage.replace(/^\//, '')}`} alt={siteConfig.profileImageAlt} class="profile-image" />
     </div>
     {
         siteConfig.openToWork ? (

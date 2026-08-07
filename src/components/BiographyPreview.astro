@@ -11,7 +11,7 @@ import ProfileImage from './ProfileImage.astro';
         <div class="content-wrapper">
             <h2>{homeData.biographyPreview.heading}</h2>
             <p class="resume">{homeData.biographyPreview.resume}</p>
-            <a href="/biography" class="read-more">
+            <a href={`${import.meta.env.BASE_URL}biography`} class="read-more">
                 {homeData.biographyPreview.ctaLabel} →
             </a>
         </div>

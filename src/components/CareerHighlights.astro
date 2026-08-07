@@ -33,7 +33,7 @@ const allCards = homeData.careerHighlights
                             </span>
                             {card.logo && (
                                 <img
-                                    src={`/${card.logo}`}
+                                    src={`${import.meta.env.BASE_URL}${card.logo}`}
                                     alt={card.enterprise ?? ''}
                                     class="highlight-logo"
                                 />

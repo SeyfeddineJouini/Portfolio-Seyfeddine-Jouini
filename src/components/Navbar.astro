@@ -2,12 +2,13 @@
 import { siteConfig } from '../data/site';
 
 const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
 ---
 
 <nav class="navbar">
     <div class="navbar-container">
         <div class="nav-left">
-            <a href="/" class="logo">{siteConfig.fullName}</a>
+            <a href={base} class="logo">{siteConfig.fullName}</a>
         </div>
         <button class="menu-toggle" aria-label={siteConfig.accessibility.menuToggleLabel}>
             <span class="hamburger"></span>
@@ -16,16 +17,17 @@ const currentPath = Astro.url.pathname;
             <ul class="nav-links">
                 {
                     siteConfig.navigation.map((item) => {
+                        const fullHref = item.href.startsWith('#') ? item.href : `${base}${item.href.replace(/^\//, '')}`;
                         const isActive =
                             item.href === '/'
-                                ? currentPath === '/'
+                                ? currentPath === base || currentPath === `${base}/`
                                 : item.href === '/blog'
-                                  ? currentPath.startsWith('/blog')
-                                  : currentPath === item.href || currentPath === `${item.href}/`;
+                                  ? currentPath.startsWith(`${base}blog`)
+                                  : currentPath === fullHref || currentPath === `${fullHref}/`;
 
                         return (
                             <li>
-                                <a href={item.href} class:list={[{ active: isActive }]}>
+                                <a href={fullHref} class:list={[{ active: isActive }]}>
                                     {item.label}
                                 </a>
                             </li>
