@@ -7,7 +7,7 @@ export const siteConfig = {
     firstName,
     lastName,
     fullName,
-    role: 'Full-Stack Developer',
+    role: 'FullStack Engineer | AI Integrator',
     title: 'Full-Stack Developer Portfolio',
     description:
         'Personal portfolio of Seyfeddine Jouini, Full-Stack Developer based in Paris, France.',

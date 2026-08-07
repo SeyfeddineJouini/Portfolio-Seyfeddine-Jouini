@@ -17,7 +17,7 @@ import { siteConfig } from '../data/site';
                             data-contact-link={contactLink.label.toLowerCase()}
                         >
                             <div class="icon-wrapper">
-                                <span class="icon">{contactLink.icon}</span>
+                                <span class="icon" set:html={contactLink.icon} />
                             </div>
                             <div class="info" id={contactLink.label.toLowerCase()}>
                                 <span class="label">{contactLink.label}</span>
