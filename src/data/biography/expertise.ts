@@ -12,8 +12,8 @@ export const expertiseList: AreaOfExpertise[] = [
             { label: 'Spring Boot', level: 80, icon: 'logos:spring-icon' },
             { label: '.NET Core', level: 70, icon: 'logos:dotnet' },
             { label: 'SQL', level: 85, icon: 'mdi:database' },
-            { label: 'NoSQL', level: 60, icon: 'mdi:database-outline' },
-            { label: 'Kafka', level: 50, icon: 'logos:kafka' },
+            { label: 'NoSQL', level: 70, icon: 'mdi:database-outline' },
+            { label: 'Kafka', level: 40, icon: 'logos:kafka' },
         ],
     },
     {

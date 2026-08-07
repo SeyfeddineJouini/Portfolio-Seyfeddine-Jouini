@@ -9,8 +9,8 @@ export const experienceList: ProfessionalExperience[] = [
         icon: 'GEHC.png',
         team: 'Paris, France — Mar. 2026 – Sept. 2026',
         tasks: [
-            'Developed the backend of a Proof of Concept (POC) for a radiology workflow analytics service',
-            'Designed an automatic label placement algorithm for medical images',
+            'Designed and developed end-to-end a patented automatic label placement algorithm for MRI viewers',
+            'Led the implementation from algorithmic design to functional validation',
         ],
         keyWords: [
             'Python',
@@ -22,7 +22,7 @@ export const experienceList: ProfessionalExperience[] = [
         ],
     },
     {
-        fromYear: '2026',
+        fromYear: '2024',
         toYear: 'Present',
         title: 'Freelance Software Engineer',
         enterprise: 'Freelance',
@@ -97,6 +97,6 @@ export const experienceList: ProfessionalExperience[] = [
             'Implemented secure payment workflows and user-friendly interfaces',
             'Built and integrated REST APIs to manage transactions and client data',
         ],
-        keyWords: ['Java EE', 'Angular', 'MySQL', 'REST API', 'GitHub'],
+        keyWords: ['Java', 'SpringBoot', 'Angular', 'MySQL', 'REST API', 'GitHub'],
     },
 ];
