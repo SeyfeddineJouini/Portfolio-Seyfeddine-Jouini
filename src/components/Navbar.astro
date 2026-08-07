@@ -1,8 +1,17 @@
 ---
 import { siteConfig } from '../data/site';
+import { biographyData } from '../data/biography';
 
 const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
+
+const biographyDropdown = [
+    { label: biographyData.profile.tabs.experience, anchor: 'experience' },
+    { label: biographyData.profile.tabs.ventures, anchor: 'ventures' },
+    { label: biographyData.profile.tabs.education, anchor: 'education' },
+    { label: biographyData.profile.tabs.expertise, anchor: 'expertise' },
+    { label: biographyData.profile.tabs.others, anchor: 'others' },
+];
 ---
 
 <nav class="navbar">
@@ -25,11 +34,25 @@ const base = import.meta.env.BASE_URL;
                                   ? currentPath.startsWith(`${base}blog`)
                                   : currentPath === fullHref || currentPath === `${fullHref}/`;
 
+                        const isBiography = item.href === '/biography';
+
                         return (
-                            <li>
+                            <li class:list={[{ 'has-dropdown': isBiography }]}>
                                 <a href={fullHref} class:list={[{ active: isActive }]}>
                                     {item.label}
+                                    {isBiography && <span class="dropdown-arrow">▾</span>}
                                 </a>
+                                {isBiography && (
+                                    <ul class="dropdown-menu">
+                                        {biographyDropdown.map((section) => (
+                                            <li>
+                                                <a href={`${fullHref}#${section.anchor}`}>
+                                                    {section.label}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
                             </li>
                         );
                     })
@@ -54,6 +77,32 @@ const base = import.meta.env.BASE_URL;
             menuToggle?.classList.remove('active');
             navRight?.classList.remove('active');
         });
+    });
+
+    // When already on biography page, dropdown clicks activate the tab directly
+    document.querySelectorAll('.dropdown-menu a').forEach((link) => {
+        link.addEventListener('click', (e) => {
+            const href = (link as HTMLAnchorElement).getAttribute('href') ?? '';
+            const hash = href.split('#')[1];
+            const tabPanel = hash && document.getElementById(hash);
+            if (tabPanel && document.querySelector('.cv-tabs-section')) {
+                e.preventDefault();
+                document.querySelectorAll('.tab-btn').forEach((btn) => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach((p) => p.classList.remove('active'));
+                document.querySelector(`.tab-btn[data-tab="${hash}"]`)?.classList.add('active');
+                tabPanel.classList.add('active');
+                menuToggle?.classList.remove('active');
+                navRight?.classList.remove('active');
+            }
+        });
+    });
+    const dropdownParent = document.querySelector('.has-dropdown');
+    const dropdownLink = dropdownParent?.querySelector(':scope > a');
+    dropdownLink?.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdownParent?.classList.toggle('dropdown-open');
+        }
     });
 </script>
 
@@ -297,5 +346,98 @@ const base = import.meta.env.BASE_URL;
             border-left: 4px solid var(--nav-active-underline);
             padding-left: calc(1.5rem - 4px);
         }
+
+        .has-dropdown .dropdown-menu {
+            position: static;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: none;
+            box-shadow: none;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            background: transparent;
+            min-width: auto;
+            display: none;
+        }
+
+        .has-dropdown.dropdown-open .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            padding-left: 2.5rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--header-foot-text);
+        }
+
+        .dropdown-menu li:last-child a {
+            border-bottom: none;
+        }
+    }
+
+    /* Desktop dropdown */
+    .has-dropdown {
+        position: relative;
+    }
+
+    .dropdown-arrow {
+        font-size: 0.75rem;
+        margin-left: 0.25rem;
+        transition: transform var(--transition-speed) ease;
+        display: inline-block;
+    }
+
+    .has-dropdown:hover .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+        display: block;
+        list-style: none;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        left: 50%;
+        transform: translateX(-50%) translateY(-8px);
+        background: var(--header-foot-bg);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        box-shadow: 0 8px 24px var(--color-shadow-lg);
+        min-width: 220px;
+        padding: 0.4rem 0;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease, visibility var(--transition-speed) ease;
+        z-index: 999;
+    }
+
+    .has-dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-menu li a {
+        display: block;
+        padding: 0.6rem 1.2rem;
+        color: var(--color-text);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 400;
+        transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+        white-space: nowrap;
+    }
+
+    .dropdown-menu li a::after {
+        display: none;
+    }
+
+    .dropdown-menu li a:hover {
+        background: var(--nav-active-bg);
+        color: var(--header-foot-accent);
     }
 </style>

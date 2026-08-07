@@ -33,10 +33,7 @@ export const homeData = {
         heading: 'About Me',
         ctaLabel: 'Read Full Biography',
         resume: `
-    Full-Stack Developer with hands-on experience across the entire stack — from backend services
-    in Python, Node.js and Spring Boot, to frontend applications with React and Flutter.
-    I have worked in research labs, healthcare tech, and startups, and I enjoy building
-    products that reach real users.
+    Full-Stack & AI Engineer with hands-on experience building end-to-end applications across fintech, greentech, and healthcare. From backend services in Node.js, SpringBoot and .Net to frontend experiences with React and Flutter, I enjoy turning complex challenges into products that create real-world impact.
 `,
     },
     careerHighlights: [

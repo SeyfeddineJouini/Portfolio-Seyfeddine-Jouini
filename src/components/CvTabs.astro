@@ -260,7 +260,7 @@ const tabItems = [
         const tabPanels = Array.from(document.querySelectorAll<HTMLElement>('.tab-panel'));
         const tabsSection = document.querySelector('.cv-tabs-section');
 
-        function activateTab(targetTab: string) {
+        function activateTab(targetTab: string, scroll = true) {
             tabButtons.forEach((btn) => btn.classList.remove('active'));
             tabPanels.forEach((panel) => panel.classList.remove('active'));
 
@@ -271,7 +271,18 @@ const tabItems = [
 
             targetButton?.classList.add('active');
             targetPanel?.classList.add('active');
-            tabsSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (scroll) {
+                tabsSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Activate tab from URL hash on page load without scrolling
+        const hash = window.location.hash.replace('#', '');
+        const validTabs = tabButtons.map((b) => b.getAttribute('data-tab'));
+        if (hash && validTabs.includes(hash)) {
+            activateTab(hash, false);
+            // Clear the hash so the browser doesn't auto-scroll to it
+            history.replaceState(null, '', window.location.pathname);
         }
 
         tabButtons.forEach((button) => {
