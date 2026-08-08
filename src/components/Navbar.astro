@@ -97,13 +97,7 @@ const biographyDropdown = [
         });
     });
     const dropdownParent = document.querySelector('.has-dropdown');
-    const dropdownLink = dropdownParent?.querySelector(':scope > a');
-    dropdownLink?.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-            e.preventDefault();
-            dropdownParent?.classList.toggle('dropdown-open');
-        }
-    });
+
 </script>
 
 <style>
@@ -275,6 +269,10 @@ const biographyDropdown = [
             display: flex;
         }
 
+        .dropdown-arrow {
+            display: none;
+        }
+
         .logo {
             font-size: 1.1rem;
             white-space: nowrap;
@@ -347,35 +345,6 @@ const biographyDropdown = [
             padding-left: calc(1.5rem - 4px);
         }
 
-        .has-dropdown .dropdown-menu {
-            position: static;
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-            transform: none;
-            box-shadow: none;
-            border: none;
-            border-radius: 0;
-            padding: 0;
-            background: transparent;
-            min-width: auto;
-            display: block;
-        }
-
-        .has-dropdown.dropdown-open .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-menu li a {
-            padding-left: 2.5rem;
-            font-size: 0.9rem;
-            border-bottom: 1px solid var(--color-border);
-            color: var(--header-foot-text);
-        }
-
-        .dropdown-menu li:last-child a {
-            border-bottom: none;
-        }
     }
 
     /* Desktop dropdown */
@@ -439,5 +408,33 @@ const biographyDropdown = [
     .dropdown-menu li a:hover {
         background: var(--nav-active-bg);
         color: var(--header-foot-accent);
+    }
+
+    @media (max-width: 768px) {
+        .has-dropdown .dropdown-menu {
+            position: static;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: none;
+            box-shadow: none;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            background: transparent;
+            min-width: auto;
+            display: block !important;
+        }
+
+        .dropdown-menu li a {
+            padding-left: 2.5rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--header-foot-text);
+        }
+
+        .dropdown-menu li:last-child a {
+            border-bottom: none;
+        }
     }
 </style>
