@@ -1,0 +1,221 @@
+# Cover Letter Writer (CV Guide Method)
+
+## Description
+
+Generate a professional English cover letter by following the methodology described in the CV Guide.
+
+This skill does not simply summarize a resume.
+
+Instead it:
+
+1. Analyzes the job description.
+2. Identifies the most important responsibilities and qualifications.
+3. Matches them to evidence found in the candidate's CV.
+4. Researches and incorporates company-specific motivations when available.
+5. Builds a persuasive narrative around achievements, impact, initiative, leadership, curiosity, or problem-solving.
+6. Produces a tailored cover letter written in professional English.
+
+---
+
+## Required Inputs
+
+### Resume
+
+The candidate CV.
+
+### Job Description
+
+The full job posting.
+
+### Optional Inputs
+
+- Company name
+- Hiring manager name
+- Industry
+- Desired tone
+
+---
+
+## Step 1: Analyze The Job Description
+
+Extract:
+
+### Key Responsibilities
+
+Identify the 3 to 5 most important responsibilities.
+
+### Required Qualifications
+
+Identify:
+
+- Required qualifications
+- Preferred qualifications
+- Nice-to-have qualifications
+
+Rank them by importance.
+
+---
+
+## Step 2: Match CV Evidence
+
+Create a qualification mapping table.
+
+| Job Requirement | CV Evidence |
+|----------------|------------|
+| Requirement | Relevant experience |
+| Requirement | Achievement |
+| Requirement | Project |
+
+Use wording as close as possible to the job description.
+
+Never invent qualifications.
+
+---
+
+## Step 3: Identify Strong Themes
+
+Determine 2 or 3 themes from the candidate's experiences.
+
+Possible themes:
+
+- Leadership
+- Initiative
+- Curiosity
+- Problem Solving
+- Teamwork
+- Managing Conflict
+- Adaptability
+- Technical Expertise
+- Ownership
+- Customer Focus
+
+Select themes supported by evidence from the CV.
+
+---
+
+## Step 4: Company Motivation
+
+Identify:
+
+- Company mission
+- Values
+- Products
+- Recent initiatives
+- Industry position
+
+Build genuine motivations linked to the candidate's interests and career goals.
+
+Avoid generic statements.
+
+---
+
+## Step 5: Build The Cover Letter
+
+### Section 1: Introduction
+
+State:
+
+- Who the candidate is
+- Relevant experience
+- Interest in the position
+
+### Section 2: Transition
+
+Summarize a major achievement.
+
+Format:
+
+"Over the last X years/months, I have..."
+
+Include measurable impact whenever available.
+
+---
+
+### Section 3: Qualification Match
+
+Present the two strongest qualification matches.
+
+For each:
+
+1. Theme
+2. Context
+3. Actions
+4. Results
+5. Lessons learned
+
+Prioritize impact and outcomes.
+
+Use specific examples.
+
+---
+
+### Section 4: Why This Company
+
+Explain:
+
+- Why the company is attractive
+- Why the mission resonates
+- Why the industry interests the candidate
+
+Link motivations to experiences whenever possible.
+
+---
+
+### Section 5: Conclusion
+
+Reaffirm:
+
+- Interest in the role
+- Fit for the position
+- Enthusiasm to discuss further
+
+End professionally.
+
+---
+
+## Writing Rules
+
+- English only.
+- Professional tone.
+- ATS-friendly.
+- Do not invent information.
+- Prefer achievements over responsibilities.
+- Prefer quantified impact.
+- Avoid generic language.
+- Avoid repeating CV bullet points.
+- Keep length between 50 and 100 words.
+
+---
+
+## Output Format
+
+Dear Hiring Manager,
+
+[Introduction]
+
+[Achievement-Based Transition]
+
+[Qualification Match #1]
+
+[Qualification Match #2]
+
+[Why Company]
+
+[Conclusion]
+
+Kind regards,
+
+[Candidate Name]
+
+---
+
+## Success Criteria
+
+A successful letter:
+
+- Feels personalized.
+- Demonstrates company knowledge.
+- Connects qualifications to requirements.
+- Highlights measurable achievements.
+- Uses evidence from the CV.
+- Reads like a persuasive story, not a CV summary.
